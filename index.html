@@ -117,6 +117,34 @@ section{position:relative;z-index:2}
 .skill-name{font-size:.84rem;font-weight:500;margin-bottom:.6rem;color:var(--text);letter-spacing:.04em}
 .skill-list{font-size:.78rem;color:var(--muted);line-height:2;font-family:'DM Mono',monospace}
 
+/* CERTIFICATIONS */
+#certifications{background:var(--bg)}
+.certs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.cert-card{position:relative;border:1px solid var(--border);padding:2.6rem 2.8rem;background:var(--card);overflow:hidden;transition:border-color .4s,transform .35s}
+.cert-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.05) 0%,transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;z-index:0}
+.cert-card:hover::before{opacity:1}
+.cert-card:hover{border-color:rgba(201,169,110,0.35);transform:translateY(-4px)}
+.cert-card-glow{position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;pointer-events:none;transition:opacity .4s;opacity:0;z-index:0}
+.cert-card:hover .cert-card-glow{opacity:1}
+.cert-card:nth-child(1) .cert-card-glow{background:radial-gradient(circle,rgba(0,237,100,0.06) 0%,transparent 70%)}
+.cert-card:nth-child(2) .cert-card-glow{background:radial-gradient(circle,rgba(244,144,0,0.07) 0%,transparent 70%)}
+.cert-header{display:flex;align-items:flex-start;gap:1.4rem;margin-bottom:1.8rem;position:relative;z-index:1}
+.cert-logo-wrap{width:56px;height:56px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(255,255,255,0.03)}
+.cert-logo-wrap svg{width:32px;height:32px}
+.cert-issuer{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.cert-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;line-height:1.25;color:var(--text)}
+.cert-divider{height:1px;background:var(--border);margin-bottom:1.5rem;position:relative;z-index:1}
+.cert-meta{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.8rem;position:relative;z-index:1}
+.cert-badge{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .85rem;font-family:'DM Mono',monospace}
+.cert-badge-verified{background:rgba(201,169,110,0.08);color:var(--gold);border:1px solid rgba(201,169,110,0.25)}
+.cert-badge-global{background:rgba(255,255,255,0.04);color:var(--muted2);border:1px solid var(--border)}
+.cert-credential-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;position:relative;z-index:1}
+.cert-link{position:relative;z-index:2;display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;color:var(--gold);text-decoration:none;border:1px solid rgba(201,169,110,0.25);padding:.65rem 1.3rem;transition:all .3s;font-family:'DM Mono',monospace;letter-spacing:.04em;cursor:pointer}
+.cert-link:hover{background:rgba(201,169,110,0.1);border-color:rgba(201,169,110,0.5)}
+.cert-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0;pointer-events:none}
+.cert-accent-line{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .4s;pointer-events:none;z-index:0}
+.cert-card:hover .cert-accent-line{opacity:0.5}
+
 /* CO-CURRICULAR */
 .activity-card{border:1px solid var(--border);padding:2.5rem 3rem;background:var(--card);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:3rem;transition:border-color .3s}
 .activity-card:hover{border-color:rgba(201,169,110,0.3)}
@@ -162,6 +190,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
   .project-featured{grid-column:span 1;display:block}
   .project-featured-right{display:none}
   .skills-grid{grid-template-columns:1fr 1fr}
+  .certs-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
   .activity-card{grid-template-columns:auto 1fr}
   .activity-link{display:none}
@@ -185,6 +214,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
     <li><a href="#hero">Home</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#cocurricular">More</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -381,6 +411,84 @@ footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-
 
 <div class="divider"></div>
 
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-label fade-up">Credentials</div>
+    <h2 class="section-title fade-up">Global <em>Certifications</em></h2>
+    <div class="certs-grid fade-up">
+
+      <!-- MongoDB -->
+      <div class="cert-card">
+        <div class="cert-card-glow"></div>
+        <div class="cert-accent-line"></div>
+        <div class="cert-header">
+          <div class="cert-logo-wrap">
+            <!-- MongoDB leaf logo -->
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2C16 2 9.5 10.5 9.5 17.5C9.5 21.366 12.134 24.5 16 24.5C19.866 24.5 22.5 21.366 22.5 17.5C22.5 10.5 16 2 16 2Z" fill="#00ED64"/>
+              <path d="M16 24.5V30" stroke="#00ED64" stroke-width="2" stroke-linecap="round"/>
+              <path d="M16 24.5C16 24.5 13 22 13 18" stroke="#005E3D" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cert-issuer">MongoDB University</div>
+            <div class="cert-name">MongoDB Certified<br>Associate Developer</div>
+          </div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-meta">
+          <span class="cert-badge cert-badge-verified">✓ Verified</span>
+          <span class="cert-badge cert-badge-global">Global Certification</span>
+          <span class="cert-badge cert-badge-global">Database · NoSQL</span>
+        </div>
+        <div class="cert-credential-label">Verify Credential</div>
+        <a href="https://learn.mongodb.com/c/-6ahwezbRFiCb0XOeQOtGA" target="_blank" class="cert-link">
+          View Certificate
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+
+      <!-- Oracle Java -->
+      <div class="cert-card">
+        <div class="cert-card-glow"></div>
+        <div class="cert-accent-line"></div>
+        <div class="cert-header">
+          <div class="cert-logo-wrap">
+            <!-- Oracle / Java logo -->
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5 22C12.5 22 11 22.8 13.5 23.1C16.5 23.5 18 23.4 21 22.8C21 22.8 21.8 23.3 22.9 23.7C16.3 26.5 8 23.5 12.5 22Z" fill="#F80000"/>
+              <path d="M11.7 19C11.7 19 10 20 12.5 20.3C15.8 20.7 18.5 20.7 23 19.7C23 19.7 23.6 20.3 24.5 20.6C17 23 8.5 20.9 11.7 19Z" fill="#F80000"/>
+              <path d="M18.3 13.8C19.9 15.6 17.8 17.2 17.8 17.2C17.8 17.2 22 15.3 20 12.8C18.1 10.4 16.6 9.2 22 6C22 6 14.1 8 18.3 13.8Z" fill="#F80000"/>
+              <path d="M25.9 24.5C25.9 24.5 27 25.2 24.7 25.7C20.4 26.7 10.3 27 6.5 25.7C5.1 25.2 7.7 24.5 8.5 24.3C9.4 24.1 9.9 24.2 9.9 24.2C8.5 23.2 1.5 26 6.2 26.8C18.8 28.9 29.3 25.5 25.9 24.5Z" fill="#F80000"/>
+              <path d="M13 15.9C13 15.9 7 17.3 11 17.8C12.9 18.1 16.7 18 20.2 17.7C23.1 17.4 26 16.8 26 16.8C26 16.8 25 17.3 24.2 17.8C16.6 19.8 4 17.6 7.3 16C10.1 14.6 13 15.9 13 15.9Z" fill="#F80000"/>
+              <path d="M22.3 10.5C22.3 10.5 25.8 12.3 22.4 14C18.4 16 13.9 16.1 10 14.8C10 14.8 11 15.5 14 15.8C19.5 16.3 26.5 15.6 26.5 11.8C26.5 8.4 22.3 10.5 22.3 10.5Z" fill="#F80000"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cert-issuer">Oracle</div>
+            <div class="cert-name">Oracle Certified Professional:<br>Java SE 17 Developer</div>
+          </div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-meta">
+          <span class="cert-badge cert-badge-verified">✓ Verified</span>
+          <span class="cert-badge cert-badge-global">Global Certification</span>
+          <span class="cert-badge cert-badge-global">Java · SE 17</span>
+        </div>
+        <div class="cert-credential-label">Verify Credential</div>
+        <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=D4DD4F46A98FB9F9305BDC0299B3FA44D88B295876DB74418FB3D28D5EBB62EB" target="_blank" class="cert-link">
+          View Certificate
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- CO-CURRICULAR -->
 <section id="cocurricular">
   <div class="section-inner">
@@ -457,7 +565,7 @@ let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
 function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
 animRing();
-document.querySelectorAll('a,button,.project-card,.skill-card,.activity-card').forEach(el=>{
+document.querySelectorAll('a,button,.project-card,.skill-card,.activity-card,.cert-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.7)';ring.style.borderColor='rgba(201,169,110,0.9)'});
   el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(201,169,110,0.7)'});
 });
@@ -476,8 +584,6 @@ document.addEventListener('mousemove',e=>{
   document.querySelector('.orb1').style.transform=`translate(${x}px,${y}px)`;
   document.querySelector('.orb2').style.transform=`translate(${-x}px,${-y}px)`;
 });
-
-
 </script>
 </body>
 </html>
