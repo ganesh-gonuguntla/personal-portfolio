@@ -70,6 +70,35 @@
 
 <!-- ============ HERO ============ -->
 <section id="hero">
+  <!-- DECORATIVE BACKDROP ELEMENTS -->
+  <div class="hero-bg-code" aria-hidden="true">
+    <div class="code-bracket-bg">{ }</div>
+    <div class="code-semi-bg">;</div>
+    <div class="code-tag-bg">&lt;/&gt;</div>
+    <div class="code-term-bg">const developer = "Ganesh";</div>
+  </div>
+  <div class="hero-bg-art" aria-hidden="true">
+    <div class="art-pencil-bg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+        <path d="m15 5 4 4"/>
+      </svg>
+    </div>
+    <div class="art-palette-bg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.3444 19.4939 6.09117 19.3496 6.3986 18.7562L7.33649 16.945C7.75549 16.136 8.59627 15.625 9.5057 15.625H10.5C11.6046 15.625 12.5 16.5204 12.5 17.625V19C12.5 20.6569 11.1569 22 9.5 22H12Z"/>
+        <circle cx="7.5" cy="10.5" r="1" fill="currentColor"/>
+        <circle cx="11.5" cy="7.5" r="1" fill="currentColor"/>
+        <circle cx="16.5" cy="9.5" r="1" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="art-brush-bg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 3L21 6L9 18H6V15L18 3Z"/>
+        <path d="M9 18c-1.5 1.5-3.5 2-5 1 1-1.5 1.5-3.5 3-5"/>
+      </svg>
+    </div>
+  </div>
   <div class="hero-left fade-up">
     <div class="hero-tag"><span></span><b>B.Tech CS</b>&nbsp;· Open to Opportunities</div>
     <h1 class="hero-name">Gonuguntla
@@ -113,10 +142,6 @@
       <div class="photo-frame-inner">
         <img src="profile.jpeg" alt="Portrait of Ganesh Gonuguntla">
       </div>
-      <div class="photo-tag num">
-        <div class="photo-tag-num">5+</div>
-        <div class="photo-tag-label">Projects Built</div>
-      </div>
       <div class="photo-tag status">
         <span></span>
         <div class="photo-tag-status-text">CS Undergrad</div>
@@ -131,47 +156,65 @@
 <section id="projects">
   <div class="section-inner">
     <div class="section-label fade-up">Work</div>
-    <h2 class="section-title fade-up">Selected <em>Projects</em></h2>
+    <h2 class="section-title fade-up">Projects <em>Built</em></h2>
     <div class="projects-grid fade-up">
 
+      <!-- Featured Project: AI Newsletter Generator -->
       <div class="project-featured">
         <div class="project-featured-left">
           <div class="featured-badge">★ Featured Build</div>
           <div class="project-num">FIG. 01</div>
-          <h3 class="project-name" style="font-size:2rem;margin-bottom:1rem">CivicConnect</h3>
-          <p class="project-desc">A digital platform empowering citizens to actively participate in improving their communities. Users can report civic issues — road problems, water supply, sanitation, electricity faults — through an intuitive web interface. A gamification system rewards active participation with coins, driving community engagement.</p>
+          <h3 class="project-name" style="font-size:2rem;margin-bottom:1rem">AI Newsletter Generator</h3>
+          <p class="project-desc">A fully automated intelligent pipeline generating customised newsletters from a simple topic prompt. From idea to stylised HTML newsletter download — powered by Exa API and Google Gemini with a Streamlit UI.</p>
           <div class="project-tags">
-            <span class="tag tag-blue">Full-Stack</span>
-            <span class="tag">Gamification</span>
-            <span class="tag">Civic Tech</span>
-            <span class="tag">REST API</span>
-            <span class="tag">Gov-Tech</span>
+            <span class="tag tag-blue">Streamlit</span>
+            <span class="tag">Gemini API</span>
+            <span class="tag">Exa API</span>
+            <span class="tag">Python</span>
+            <span class="tag">AI</span>
           </div>
-          <a href="https://civic-connect-two-henna.vercel.app" target="_blank" rel="noopener" class="project-arrow">Explore Project →</a>
+          <a href="https://github.com/ganesh-gonuguntla" target="_blank" rel="noopener" class="project-arrow">Explore Project →</a>
         </div>
         <div class="project-featured-right">
           <p class="spec-label">Mission</p>
-          <div class="project-mission">"Bridging citizens and governance for a better tomorrow."</div>
+          <div class="project-mission">"Empowering automated knowledge curation."</div>
           <div style="margin-top:1.8rem;padding-top:1.8rem;border-top:1px solid var(--line)">
             <p class="spec-label">Motto</p>
-            <p style="font-family:var(--body);font-size:.88rem;color:var(--graphite);line-height:1.8;font-style:italic">"Your voice, our action — together we build stronger communities."</p>
+            <p style="font-family:var(--body);font-size:.88rem;color:var(--graphite);line-height:1.8;font-style:italic">"One prompt, a complete personalized newsletter — designed, summarized, and styled by AI."</p>
           </div>
           <div class="spec-stats">
             <div class="spec-stat">
               <div class="spec-stat-num">2</div>
-              <div class="spec-stat-label">User Roles</div>
+              <div class="spec-stat-label">APIs Integrated</div>
             </div>
             <div class="spec-stat">
-              <div class="spec-stat-num">4+</div>
-              <div class="spec-stat-label">Issue Types</div>
+              <div class="spec-stat-num">100%</div>
+              <div class="spec-stat-label">Automated</div>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- CivicConnect -->
       <div class="project-card">
         <span class="tick tl"></span><span class="tick br"></span>
         <div class="project-num">FIG. 02</div>
+        <h3 class="project-name">CivicConnect</h3>
+        <p class="project-desc">A digital platform empowering citizens to report civic issues — road problems, water supply, sanitation, electricity faults — through an intuitive web interface. A gamification system rewards active participation with coins, driving community engagement.</p>
+        <div class="project-tags">
+          <span class="tag tag-blue">Full-Stack</span>
+          <span class="tag">Gamification</span>
+          <span class="tag">Civic Tech</span>
+          <span class="tag">REST API</span>
+          <span class="tag">Gov-Tech</span>
+        </div>
+        <a href="https://civic-connect-two-henna.vercel.app" target="_blank" rel="noopener" class="project-arrow">Explore Project →</a>
+      </div>
+
+      <!-- Tunify -->
+      <div class="project-card">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <div class="project-num">FIG. 03</div>
         <h3 class="project-name">Tunify</h3>
         <p class="project-desc">A React-based music streaming platform powered by the iTunes API. Music is beautifully categorised and fully browsable — delivering a smooth listening experience right in the browser.</p>
         <div class="project-tags">
@@ -183,35 +226,23 @@
         <span class="project-arrow">View Project →</span>
       </div>
 
-      <div class="project-card">
-        <span class="tick tl"></span><span class="tick br"></span>
-        <div class="project-num">FIG. 03</div>
-        <h3 class="project-name">AI Newsletter Generator</h3>
-        <p class="project-desc">A fully automated intelligent pipeline generating customised newsletters from a simple topic prompt. From idea to stylised HTML newsletter download — powered by Exa API and Google Gemini with a Streamlit UI.</p>
-        <div class="project-tags">
-          <span class="tag tag-blue">Streamlit</span>
-          <span class="tag">Gemini API</span>
-          <span class="tag">Exa API</span>
-          <span class="tag">Python</span>
-          <span class="tag">AI</span>
-        </div>
-        <span class="project-arrow">View Project →</span>
-      </div>
-
+      <!-- MATHA -->
       <div class="project-card">
         <span class="tick tl"></span><span class="tick br"></span>
         <div class="project-num">FIG. 04</div>
-        <h3 class="project-name">AI News Summarizer</h3>
-        <p class="project-desc">An end-to-end NLP application designed to combat information overload. Automatically extracts news from web URLs, cleans content, and generates highly accurate summaries using natural language processing.</p>
+        <h3 class="project-name">MATHA — Healthcare Platform</h3>
+        <p class="project-desc">A data-driven healthcare platform managing sensitive patient records with secure authentication and automated workflows. Integrated OAuth, Socket.io, Nodemailer, and real-time communication services to improve operational efficiency.</p>
         <div class="project-tags">
-          <span class="tag tag-blue">NLP</span>
-          <span class="tag">Python</span>
-          <span class="tag">Web Scraping</span>
-          <span class="tag">Text Summarization</span>
+          <span class="tag tag-blue">Node.js</span>
+          <span class="tag">Socket.io</span>
+          <span class="tag">OAuth</span>
+          <span class="tag">Nodemailer</span>
+          <span class="tag">Database</span>
         </div>
-        <span class="project-arrow">View Project →</span>
+        <a href="https://github.com/ganesh-gonuguntla/MATHA---HIV-ve-pregnants-data-management.git" target="_blank" rel="noopener" class="project-arrow">View Project →</a>
       </div>
 
+      <!-- Crop Recommendation -->
       <div class="project-card">
         <span class="tick tl"></span><span class="tick br"></span>
         <div class="project-num">FIG. 05</div>
