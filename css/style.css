@@ -805,3 +805,186 @@ footer{
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
 }
+
+
+/* ============================================================
+   THEMED PROJECT / CERT / CONTACT BACKGROUNDS (subtle)
+   ============================================================ */
+.pt,.ct{isolation:isolate;background:var(--bgc)}
+.pt::after,.ct::after,.rc::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none}
+.pt>*:not(.tick),.ct>*{position:relative;z-index:1}
+.project-card.pt::before{content:'COORD // FIG';background:var(--bgc);z-index:2}
+.project-featured.pt::before{background:var(--bgc);z-index:2}
+.pt{border-color:color-mix(in srgb,var(--blue) 30%,transparent)}
+.project-featured.pt{border-color:var(--blue)}
+.pt:hover{border-color:var(--blue);box-shadow:0 24px 50px -28px color-mix(in srgb,var(--blue) 45%,transparent)}
+.pt .tag-blue{border-color:color-mix(in srgb,var(--blue) 40%,transparent);color:var(--blue);background:color-mix(in srgb,var(--blue) 8%,transparent)}
+.pt .project-arrow{color:var(--blue)}
+
+/* AI Newsletter — newspaper */
+.pt-news{--blue:#2b2b2b;--blue-softer:rgba(60,45,20,0.07);--bgc:#f8f3e3}
+.pt-news::after{
+  background:
+    repeating-linear-gradient(90deg,transparent 0 calc(33.33% - 1px),rgba(40,30,10,0.22) calc(33.33% - 1px) 33.33%),
+    repeating-linear-gradient(0deg,rgba(40,35,25,0.14) 0 2px,transparent 2px 9px),
+    radial-gradient(rgba(0,0,0,0.12) 1px,transparent 1.5px) 0 0/6px 6px;
+  animation:newsScroll 14s linear infinite}
+.pt-news .project-name,.pt-news .project-mission{font-family:Georgia,'Times New Roman',serif}
+@keyframes newsScroll{from{background-position:0 0,0 0,0 0}to{background-position:0 0,0 -90px,0 0}}
+
+/* CivicConnect — bridge between citizens & officers */
+.pt-civic{--blue:#1f6f8b;--bgc:#edf5f8}
+.pt-civic::after{
+  background:
+    repeating-linear-gradient(90deg,rgba(255,170,0,0.425) 0 6px,transparent 6px 70px) 0 85%/100% 2px repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%231f6f8b' stroke-width='1.5' opacity='.4'%3E%3Cpath d='M0 88H400M100 88V20M300 88V20'/%3E%3Cpath d='M0 70Q50 70 100 20Q200 100 300 20Q350 70 400 70'/%3E%3Cpath d='M120 88V50M140 88V58M160 88V64M180 88V68M220 88V68M240 88V64M260 88V58M280 88V50'/%3E%3C/g%3E%3C/svg%3E") center bottom/100% 55% no-repeat,
+    linear-gradient(0deg,rgba(31,111,139,0.27),transparent 22%);
+  background-repeat:repeat-x,no-repeat,no-repeat;
+  animation:bridgeFlow 9s linear infinite}
+@keyframes bridgeFlow{from{background-position:0 85%,center bottom,0 0}to{background-position:70px 85%,center bottom,0 0}}
+
+/* Crop Recommendation — crops */
+.pt-crop{--blue:#4f7d2c;--bgc:#f6f8e9}
+.pt-crop::after{
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 40'%3E%3Cg fill='%23b8a23a' fill-opacity='0.84' stroke='%23b8a23a' stroke-opacity='0.84'%3E%3Cpath d='M14 40V8' fill='none'/%3E%3Cellipse cx='14' cy='7' rx='2' ry='4'/%3E%3Cellipse cx='10.5' cy='14' rx='2' ry='4' transform='rotate(-30 10.5 14)'/%3E%3Cellipse cx='17.5' cy='14' rx='2' ry='4' transform='rotate(30 17.5 14)'/%3E%3Cellipse cx='10.5' cy='21' rx='2' ry='4' transform='rotate(-30 10.5 21)'/%3E%3Cellipse cx='17.5' cy='21' rx='2' ry='4' transform='rotate(30 17.5 21)'/%3E%3C/g%3E%3C/svg%3E") 0 100%/28px 40px repeat-x,
+    radial-gradient(circle at 92% 6%,rgba(255,200,60,0.51),transparent 38%),
+    linear-gradient(0deg,rgba(139,105,60,0.24),transparent 30%);
+  animation:cropSway 3.5s ease-in-out infinite alternate}
+@keyframes cropSway{from{background-position:0 100%,0 0,0 0}to{background-position:6px 100%,0 0,0 0}}
+
+/* Tunify — music */
+.pt-music{--blue:#7c3aed;--bgc:#f7f3ff}
+.pt-music::after{
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 70'%3E%3Cg stroke='%237c3aed' stroke-opacity='0.46'%3E%3Cpath d='M0 15H200M0 22H200M0 29H200M0 36H200M0 43H200'/%3E%3Cpath d='M44 36V12M94 22V46M144 43V19M179 29V5'/%3E%3C/g%3E%3Cg fill='%237c3aed' fill-opacity='0.59'%3E%3Cellipse cx='40' cy='36' rx='4.5' ry='3.2'/%3E%3Cellipse cx='90' cy='22' rx='4.5' ry='3.2'/%3E%3Cellipse cx='140' cy='43' rx='4.5' ry='3.2'/%3E%3Cellipse cx='175' cy='29' rx='4.5' ry='3.2'/%3E%3C/g%3E%3C/svg%3E") 0 0/200px 70px,
+    radial-gradient(circle at 0% 100%,rgba(236,72,153,0.27),transparent 45%);
+  animation:staffMove 18s linear infinite}
+@keyframes staffMove{from{background-position:0 0,0 0}to{background-position:200px 0,0 0}}
+
+/* MATHA — medical */
+.pt-med{--blue:#0e9f8e;--bgc:#f0faf9}
+.pt-med::after{
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 50'%3E%3Cpath d='M0 25H50L56 25L62 8L70 42L76 18L80 25H160' fill='none' stroke='%230e9f8e' stroke-opacity='0.84' stroke-width='1.5'/%3E%3C/svg%3E") 0 96%/160px 50px repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cpath d='M18 12v12M12 18h12' stroke='%230e9f8e' stroke-opacity='0.29' stroke-width='2'/%3E%3C/svg%3E") 0 0/36px 36px;
+  animation:ecgMove 4s linear infinite}
+@keyframes ecgMove{from{background-position:0 96%,0 0}to{background-position:160px 96%,0 0}}
+
+/* Certifications */
+.ct-mongo{--bgc:#f2fbf5}
+.ct-mongo:hover{border-color:#00a651}
+.ct-mongo::after{
+  background:
+    linear-gradient(90deg,transparent,rgba(0,237,100,0.34),transparent) 0 0/40% 100% no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2300684a' stroke-opacity='0.27'%3E%3Cellipse cx='40' cy='24' rx='18' ry='6'/%3E%3Cpath d='M22 24v32c0 3.3 8 6 18 6s18-2.7 18-6V24M22 40c0 3.3 8 6 18 6s18-2.7 18-6'/%3E%3C/g%3E%3C/svg%3E") 0 0/80px 80px;
+  animation:dbScan 6s ease-in-out infinite}
+@keyframes dbScan{from{background-position:-100% 0,0 0}to{background-position:200% 0,0 0}}
+
+.ct-java{--bgc:#fff6f1}
+.ct-java:hover{border-color:#e76f00}
+.ct-java::after{
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40'%3E%3Cpath d='M10 40q-6-10 0-20t0-20' fill='none' stroke='%23e76f00' stroke-opacity='0.59' stroke-width='1.5'/%3E%3C/svg%3E") 94% 0/20px 40px repeat-y,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23e76f00' stroke-opacity='0.63' stroke-width='2.5'%3E%3Cpath d='M8 24h34v14a12 12 0 0 1-12 12H20A12 12 0 0 1 8 38z'/%3E%3Cpath d='M42 28h4a6 6 0 0 1 0 12h-4M4 56h42'/%3E%3C/g%3E%3C/svg%3E") 96% 94%/70px 70px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 50'%3E%3Ctext x='8' y='34' font-family='monospace' font-size='26' fill='%23e76f00' fill-opacity='0.19'%3E%7B %7D%3C/text%3E%3C/svg%3E") 0 0/70px 50px;
+  animation:javaSteam 5s linear infinite}
+@keyframes javaSteam{from{background-position:94% 0,96% 94%,0 0}to{background-position:94% -40px,96% 94%,70px 50px}}
+
+/* Contact rows */
+.rc::before{z-index:0}
+.rc{--blue:var(--rc)}
+.rc-mail{--rc:#ea4335;background:#fff5f4}
+.rc-in{--rc:#0a66c2;background:linear-gradient(90deg,#fff,#eaf3fb)}
+.rc-ig{--rc:#dd2a7b;background:linear-gradient(100deg,#fff6ec,#ffeef6 50%,#f1ecff)}
+.rc-gh{--rc:#3fb950;background:#0d1117;border-color:#30363d}
+.rc-lc{--rc:#ffa116;background:#1a1a1a;border-color:#3a3a3a}
+.rc-gh .contact-row-label,.rc-lc .contact-row-label,.rc-gh .contact-arrow,.rc-lc .contact-arrow{color:#8b949e}
+.rc-gh .contact-row-val,.rc-lc .contact-row-val{color:#f0f6fc}
+.rc-gh:hover,.rc-lc:hover{border-color:var(--rc)}
+.rc-mail::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cg fill='none' stroke='%23ea4335' stroke-opacity='0.42' stroke-width='2'%3E%3Crect x='1' y='1' width='58' height='38' rx='3'/%3E%3Cpath d='M1 4l29 20 29-20'/%3E%3C/g%3E%3C/svg%3E") 88% center/74px no-repeat}
+.rc-in::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 44'%3E%3Ctext x='4' y='40' font-family='Arial' font-weight='800' font-size='44' fill='%230a66c2' fill-opacity='0.25'%3Ein%3C/text%3E%3C/svg%3E") 88% center/70px no-repeat}
+.rc-ig::before{background:radial-gradient(circle at 8% 130%,rgba(254,218,119,0.33),transparent 45%),radial-gradient(circle at 96% -20%,rgba(150,47,191,0.34),transparent 45%)}
+.rc-gh::before{inset:0 0 0 45%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 16'%3E%3Cg fill='%233fb950'%3E%3Crect width='11' height='11' rx='2' fill-opacity='0.21'/%3E%3Crect x='16' width='11' height='11' rx='2' fill-opacity='0.63'/%3E%3Crect x='32' width='11' height='11' rx='2' fill-opacity='0.38'/%3E%3C/g%3E%3C/svg%3E") 0 0/48px 16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000)}
+.rc-lc::before{background:radial-gradient(circle at 0 50%,rgba(255,161,22,0.31),transparent 50%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Ctext x='4' y='24' font-family='monospace' font-size='20' fill='%23ffa116' fill-opacity='0.21'%3E%3C/%3E%3C/text%3E%3C/svg%3E") 0 0/60px 30px}
+
+@media(prefers-reduced-motion:reduce){.pt::after,.ct::after{animation:none!important}}
+
+
+/* ===== STRONGER BACKGROUND DECOR ===== */
+.hero-bg-code,.hero-bg-art{opacity:1}
+.code-bracket-bg,.code-semi-bg,.code-tag-bg{opacity:.2;animation:floatSlow 9s ease-in-out infinite alternate}
+.code-term-bg{opacity:.3}
+.art-pencil-bg,.art-palette-bg,.art-brush-bg{opacity:.26}
+.code-semi-bg{animation-delay:-3s}.code-tag-bg{animation-delay:-6s}
+
+/* ===== GLOBAL MOTION ===== */
+#scrollbar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),#38bdf8,#22d3ee);z-index:9997;pointer-events:none}
+#float-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#float-layer>span{position:absolute;transform:translateY(calc(var(--sy,0px)*var(--s,.1)))}
+#float-layer i{display:block;font-style:normal;font-family:var(--mono);animation:glyphDrift var(--t,12s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+@keyframes glyphDrift{0%{transform:translate(0,0) rotate(-8deg)}50%{transform:translate(18px,-34px) rotate(6deg)}100%{transform:translate(-14px,-70px) rotate(-4deg)}}
+
+.rv{opacity:0;transition:opacity .8s ease var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.rv-a{transform:translateX(-50px) rotate(-1.5deg)}
+.rv-b{transform:translateX(50px) rotate(1.5deg)}
+.rv-c{transform:translateY(40px) scale(.92)}
+.rv.visible{opacity:1;transform:none}
+
+.tilt:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-5px)}
+
+.section-title em{background:linear-gradient(90deg,var(--blue),#38bdf8,#22d3ee,var(--blue));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:250% 0}}
+
+.skill-icon{animation:bob 3.2s ease-in-out infinite}
+.skill-card:nth-child(2n) .skill-icon{animation-delay:-1s}.skill-card:nth-child(3n) .skill-icon{animation-delay:-2s}
+@keyframes bob{50%{transform:translateY(-5px) rotate(6deg)}}
+.cert-logo-wrap{animation:certPulse 3s ease-in-out infinite}
+@keyframes certPulse{50%{transform:scale(1.08);box-shadow:0 0 0 7px rgba(42,82,227,.08)}}
+.contact-arrow{animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{50%{transform:translate(4px,-4px)}}
+.btn-primary{animation:btnGlow 2.6s ease-in-out infinite}
+@keyframes btnGlow{50%{box-shadow:0 0 0 8px rgba(42,82,227,.14),0 10px 26px rgba(42,82,227,.25)}}
+.pinned img{animation:imgBreath 7s ease-in-out infinite alternate}
+@keyframes imgBreath{to{transform:scale(1.05)}}
+.pt-music .project-name{animation:beat 1.2s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.02);transform-origin:left}}
+
+
+/* ===== COLOURFUL ANIMATED BACKGROUNDS ===== */
+body{background:linear-gradient(125deg,#dbeafe,#e0f2fe,#cffafe,#e0e7ff,#d1fae5,#dbeafe);background-size:300% 300%;animation:gradShift 22s ease infinite}
+#projects,#certifications,#cocurricular,#contact,#skills{background-size:300% 300%;animation:gradShift 26s ease infinite}
+#projects{background-image:linear-gradient(120deg,#cfe0ff,#d6e8ff,#c9f2ff,#dcd9ff,#cfe0ff)}
+#certifications{background-image:linear-gradient(120deg,#c9f7e0,#cdeaff,#d4f5ff,#e2ecff,#c9f7e0)}
+#cocurricular{background-image:linear-gradient(120deg,#e3f0ff,#d3f1ff,#dbe4ff,#d3f7ee,#e3f0ff)}
+#contact{background-image:linear-gradient(120deg,#d9e2ff,#cdeeff,#d3ffe2,#d6ecff,#d9e2ff)}
+#skills{background-image:linear-gradient(120deg,#0f1630,#16286b,#0b3f58,#123a73,#0f1630)}
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.orb1{background:radial-gradient(circle,rgba(59,130,246,.34) 0%,transparent 70%)}
+.orb2{background:radial-gradient(circle,rgba(34,211,238,.3) 0%,transparent 70%)}
+.orb{animation:orbHue 14s linear infinite alternate}
+@keyframes orbHue{to{filter:blur(10px) hue-rotate(80deg)}}
+#float-layer{z-index:3}
+
+/* ===== BOLDER / DARKER CARD TEXT ===== */
+.project-desc{color:#1f2535;font-weight:500}
+.project-name{font-weight:700;color:#0f1420}
+.project-num,.spec-label,.spec-stat-label{color:#3b4254;font-weight:600}
+.project-featured p[style]{color:#2a3040!important;font-weight:500}
+.project-mission{font-weight:700;color:#0f1420}
+.tag{font-weight:600;color:#1f2535}
+.pt .tag-blue{color:var(--blue);filter:brightness(.8)}
+.project-arrow{font-weight:700}
+.skill-name{font-weight:700}
+.skill-list{color:#f1f5f9;font-weight:500}
+.cert-name{font-weight:700;color:#0f1420}
+.cert-issuer,.cert-credential-label{color:#3b4254;font-weight:600}
+.cert-badge{font-weight:600}
+.cert-link{font-weight:700}
+.activity-desc,.activity-card p{color:#1f2535;font-weight:500}
+.activity-card h3,.activity-name{font-weight:700;color:#0f1420}
+.contact-row-label{color:#3b4254;font-weight:600}
+.contact-row-val{font-weight:600}
+.rc-gh .contact-row-label,.rc-lc .contact-row-label{color:#b6c0cc}
+.rc-gh .contact-row-val,.rc-lc .contact-row-val{color:#fff}
+.contact-sub{color:#2a3040;font-weight:500}

@@ -212,4 +212,86 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: .5 });
   sections.forEach(s => navObs.observe(s));
 
+
+  /* ---------------------------------------------------------
+     EXTRA MOTION: scroll bar, floating glyphs, staggered reveals,
+     card tilt, count-up
+  --------------------------------------------------------- */
+  const bar = document.createElement('div'); bar.id = 'scrollbar'; document.body.appendChild(bar);
+  const layer = document.createElement('div'); layer.id = 'float-layer'; layer.setAttribute('aria-hidden', 'true');
+  if (!reduceMotion) {
+    const glyphs = ['</>', '{ }', ';', '=>', '[ ]', '0101', '( )', '&&', 'fn()', '✎', '✏', '◐', '✦', '~'];
+    glyphs.concat(glyphs.slice(0, 6)).forEach((g, i) => {
+      const s = document.createElement('span'), t = document.createElement('i');
+      t.textContent = g;
+      const art = '✎✏◐✦~'.includes(g);
+      s.style.left = (Math.random() * 94) + '%';
+      s.style.top = (Math.random() * 95) + '%';
+      s.style.setProperty('--s', (Math.random() * .25 + .05).toFixed(2));
+      t.style.fontSize = (1.2 + Math.random() * 2) + 'rem';
+      t.style.color = art ? 'var(--pencil)' : 'var(--blue)';
+      t.style.opacity = (.14 + Math.random() * .1).toFixed(2);
+      t.style.setProperty('--t', (9 + Math.random() * 9).toFixed(1) + 's');
+      t.style.setProperty('--dl', (-Math.random() * 10).toFixed(1) + 's');
+      s.appendChild(t); layer.appendChild(s);
+    });
+    document.body.appendChild(layer);
+  }
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+      layer.style.setProperty('--sy', (-y) + 'px');
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // staggered directional reveal for cards / rows
+  document.querySelectorAll('.project-card,.project-featured,.skill-card,.cert-card,.contact-row').forEach((el, i) => {
+    const sibs = [...el.parentElement.children].filter(n => n.matches('.project-card,.project-featured,.skill-card,.cert-card,.contact-row'));
+    const k = sibs.indexOf(el);
+    el.classList.add('rv', ['rv-a', 'rv-b', 'rv-c'][(k + (el.classList.contains('skill-card') ? 2 : 0)) % 3]);
+    el.style.setProperty('--d', (Math.min(k, 5) * .1) + 's');
+    const o = new IntersectionObserver(es => {
+      if (es[0].isIntersecting) {
+        el.classList.add('visible'); o.disconnect();
+        setTimeout(() => el.classList.remove('rv', 'rv-a', 'rv-b', 'rv-c', 'visible'), 1500 + k * 100);
+      }
+    }, { threshold: .1 });
+    o.observe(el);
+  });
+
+  // 3D tilt on cards (pointer devices only)
+  if (!reduceMotion && window.matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.project-card,.project-featured,.skill-card,.cert-card').forEach(el => {
+      el.classList.add('tilt');
+      const max = el.classList.contains('project-featured') ? 2 : 6;
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--ry', (((e.clientX - r.left) / r.width - .5) * max * 2).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', ((.5 - (e.clientY - r.top) / r.height) * max * 2).toFixed(2) + 'deg');
+      });
+      el.addEventListener('mouseleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+    });
+  }
+
+  // count-up numbers
+  document.querySelectorAll('.spec-stat-num').forEach(el => {
+    const txt = el.textContent, n = parseInt(txt, 10), suf = txt.replace(/[0-9]/g, '');
+    if (isNaN(n) || reduceMotion) return;
+    const o = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return; o.disconnect();
+      const t0 = performance.now();
+      (function step(t) {
+        const p = Math.min((t - t0) / 1400, 1);
+        el.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + suf;
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
+    }, { threshold: .5 });
+    o.observe(el);
+  });
+
+
 });
